@@ -1,0 +1,111 @@
+.modal-container {
+    position        : fixed;
+    z-index         : 10000;
+    background-color: rgba(60, 54, 54, 0.559);
+    top             : 0;
+    left            : 0;
+    right           : 0;
+    bottom          : 0;
+    overflow        : hidden;
+    display         : flex;
+    justify-content : center;
+
+    // align-items        : center;
+
+    // &:hover .modal-content {
+    .modal-content {
+        display         : none;
+        width           : 400px;
+        height          : 200px;
+        padding         : 10px;
+        position        : absolute;
+        top             : auto;
+        bottom          : 50%;
+        background-color: #fff;
+        flex-direction  : column;
+        justify-content : space-between;
+
+
+
+
+        &.show-modal {
+            display  : flex;
+            animation: modalAction 0.3s 1 0.1s ease-out forwards;
+        }
+
+
+
+        .modal-content__header {
+            display        : flex;
+            justify-content: space-between;
+            align-items    : center;
+
+            &:hover {
+                opacity  : 1;
+                transform: translateY(-1px);
+            }
+
+            .header-title {
+                margin    : 0;
+                // padding: 0;
+            }
+
+            .header-icon {
+                cursor    : pointer;
+                font-size : 18px;
+                opacity   : 0.6;
+                transition: all 0.2s linear;
+            }
+
+        }
+
+        .modal-content__body {
+            flex         : 1;
+            border-top   : 1px solid #563d7c;
+            border-bottom: 1px solid #563d7c;
+            display      : flex;
+            align-items  : center;
+            margin       : 10px 0;
+        }
+
+        .modal-content__footer {
+            display        : flex;
+            justify-content: flex-end;
+            gap            : 10px;
+
+            .btn {
+                border       : none;
+                border-radius: 3px;
+                font-size    : 16px;
+                padding      : 5px;
+                cursor       : pointer;
+
+                &:hover {
+                    transform: translateY(-1px);
+                    opacity  : 0.8;
+                }
+            }
+
+            .btn-close-modal {
+                color: #fff;
+
+            }
+
+            .btn-complete {
+                background-color: rgba(76, 62, 198, 0.908);
+                color           : #fff;
+            }
+        }
+    }
+}
+
+@keyframes modalAction {
+    from {
+        opacity: 0.1,
+
+    }
+
+    to {
+        transform: translateY(50%),
+    }
+}

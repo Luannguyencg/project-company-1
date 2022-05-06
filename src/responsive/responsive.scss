@@ -1,0 +1,15 @@
+// @media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+@media (max-width: 767.98px) {
+    .hide-on-tablet {
+        display: none;
+    }
+
+    .show-on-tablet-btn {
+        display: block !important;
+    }
+
+    .show-on-tablet-modal {
+        display: flex !important;
+    }
+}

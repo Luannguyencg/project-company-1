@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from 'react';
+import './App.scss';
+import Header from './components/Header';
+import Content from './components/Content';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import Student from './components/Student'
+import AlertModal from './components/modals/AlertModal'
+import { AppContext } from './contexts/AppProvider'
+
 
 function App() {
+  const { isShowAlert, message, error } = useContext(AppContext)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <div className="App">
+        {isShowAlert &&
+          <AlertModal
+            message={message}
+            error={error}
+          />
+        }
+
+        <Header />
+        <Routes>
+          <Route
+            path="*"
+            element={<Navigate to="/manage-student" replace />}
+          />
+          <Route path='manage-student' element={<Content />} >
+            <Route
+              path="/manage-student"
+              element={<Navigate to="/manage-student/all" replace />}
+            />
+            <Route path=':courseIdParam' element={<Student />} />
+
+
+          </Route>
+
+
+        </Routes>
+      </div>
+    </>
   );
 }
 

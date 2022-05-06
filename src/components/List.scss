@@ -1,0 +1,103 @@
+.list-container {
+    min-height    : 90vh;
+    border        : 1px solid red;
+    border-radius : 3px;
+    padding       : 10px;
+    display       : flex;
+    flex-direction: column;
+
+    .list-header {
+        // display: flex;
+        background-color: #563d7c;
+        padding         : 10px;
+
+        .list-header__heading {
+            color : #fff;
+            margin: 0 0 10px 0;
+        }
+
+        .list-header__search {
+            border-radius     : 3px;
+            // overflow       : hidden;
+            display           : flex;
+            justify-content   : space-between;
+            flex-wrap         : wrap;
+            gap               : 10px;
+
+            .list-header__search-input {
+                display         : flex;
+                align-items     : center;
+                background-color: #fff;
+                min-width       : 280px;
+                flex            : 1;
+                margin-right    : 20px;
+                border-radius   : 3px;
+
+
+
+                .input {
+                    border    : none;
+                    outline   : none;
+                    box-shadow: none;
+                }
+
+                .icon-box {
+                    height       : 40px;
+                    width        : 40px;
+                    text-align   : center;
+                    transition   : all 0.2s ease-in-out;
+                    display      : flex;
+                    align-items  : center;
+                    border-radius: 3px;
+                    margin-right : 5px;
+
+                    &:hover {
+                        transform: translate(-2px);
+                        cursor   : pointer;
+                    }
+
+                    .search-icon {
+                        flex: 1;
+
+                    }
+                }
+            }
+
+            .select-filter {
+                .select-title {
+                    padding-bottom: 4px !important;
+                    border-bottom : 1px solid #ccc !important;
+                }
+
+                select {
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+
+    .list-content {
+        border-top : 1px solid #563d7c;
+        padding-top: 10px;
+        margin-top : 10px;
+
+        .list-content__heading {
+            display        : flex;
+            justify-content: space-between;
+            padding        : 0 60px 10px 40px;
+            border-bottom  : 1px solid #563d7c;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .list-footer {
+        margin-top     : auto;
+        display        : flex;
+        justify-content: center;
+
+    }
+}
